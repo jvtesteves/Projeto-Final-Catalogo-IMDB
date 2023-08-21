@@ -1,4 +1,4 @@
-package jv.santander;
+package grupo.santander;
 
 public class Diretor extends Pessoa {
     public Diretor(String nome, String dataNascimento) {
