@@ -1,5 +1,6 @@
 package grupo.santander;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class SistemaCatalogoFilmes {
@@ -32,6 +33,9 @@ public class SistemaCatalogoFilmes {
                 case 6:
                     buscarFilmePorNome();
                     break;
+                case 7:
+                    listarFilmes();
+                    break;
                 case 0:
                     System.out.println("Saindo do sistema...");
                     break;
@@ -49,9 +53,11 @@ public class SistemaCatalogoFilmes {
         System.out.println("4. Associar Ator a Filme");
         System.out.println("5. Definir Diretor para Filme");
         System.out.println("6. Buscar Filme por Nome");
+        System.out.println("7. Listar Filmes");
         System.out.println("0. Sair");
         System.out.print("Escolha uma opção: ");
     }
+
 
     private static void cadastrarFilme() {
         System.out.print("Digite o nome do filme: ");
@@ -95,6 +101,20 @@ public class SistemaCatalogoFilmes {
         Diretor diretor = new Diretor(nome, dataNascimento); // Usando dois parâmetros aqui
         sistema.cadastrarDiretor(diretor);
         System.out.println("Diretor cadastrado com sucesso!");
+    }
+
+
+    private static void listarFilmes() {
+        List<Filme> filmes = sistema.listarFilmes();
+
+        if (filmes.isEmpty()) {
+            System.out.println("Nenhum filme cadastrado.");
+        } else {
+            System.out.println("\n--- Filmes Cadastrados ---");
+            for (Filme filme : filmes) {
+                System.out.println(filme);
+            }
+        }
     }
 
 
